@@ -28,13 +28,17 @@ describe("Testing TaskInput UI", () => {
 });
 
 describe("Testing TaskInput functionality", () => {
-  it("should call createTask function when form is submitted", () => {
+  it("should call createTask function with taskDescription when form is submitted", () => {
     const createTask = jest.fn();
     render(<TaskInput createTask={createTask} />);
+
+    const taskDescription = "new task";
+    const textInput = screen.getByRole("textbox");
+    fireEvent.change(textInput, { target: { value: taskDescription } });
 
     const taskInputForm = screen.getByRole("form", { name: "task-input-form" });
     fireEvent.submit(taskInputForm);
 
-    expect(createTask).toBeCalled();
+    expect(createTask).toHaveBeenCalledWith(taskDescription);
   });
 });
