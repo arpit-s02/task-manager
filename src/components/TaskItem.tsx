@@ -22,7 +22,7 @@ const TaskItem = ({ task, updateTask, deleteTask }: Props) => {
         {task.description}
       </span>
 
-      <button onClick={() => deleteTask(task.id)}>
+      <button aria-label="delete-task-btn" onClick={() => deleteTask(task.id)}>
         <DeleteIcon />
       </button>
     </li>
