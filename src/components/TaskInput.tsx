@@ -11,6 +11,7 @@ const TaskInput = ({ createTask }: Props) => {
 
   return (
     <form
+      aria-label="task-input-form"
       className="min-w-72 max-w-lg w-3/5 flex items-center bg-slate-200 rounded-[40px] relative"
       onSubmit={(e) => {
         e.preventDefault();
